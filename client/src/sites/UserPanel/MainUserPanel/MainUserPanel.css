@@ -100,8 +100,6 @@
   border: 1px solid #9c9c9c;
   margin-right: 20px;
   margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
 }
 
 .mainUserPanel__categories-section__categories__box:active {
@@ -112,7 +110,35 @@
   background-color: #efefef;
 }
 
-.mainUserPanel__categories-section__categories__box span {
+.mainUserPanel__categories-section__categories__box--collection .name {
+  display: block;
+  width: calc(100% - 30px);
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mainUserPanel__categories-section__categories__box--collection .data-box {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.mainUserPanel__categories-section__categories__box--collection .data-box span {
+  color: #3e3e3e;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.mainUserPanel__categories-section__categories__box--add-button {
+  display: flex;
+  justify-content: center;
+}
+
+.mainUserPanel__categories-section__categories__box--add-button span {
   color: #3e3e3e;
   display: block;
   margin: auto;

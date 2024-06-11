@@ -145,15 +145,54 @@
                 margin-right: 20px;
                 margin-bottom: 20px;
 
-                display: flex;
-                justify-content: center;
-                span {
-                    color: #3e3e3e;
+                &--collection {
+                    .name {
+                        display: block;
+                        width: calc(100% - 30px);
 
-                    display: block;
+                        margin-top: 20px;
+                        margin-bottom: 25px;
+                        padding-left: 15px;
+                        padding-right: 15px;
 
-                    margin: auto;
+                        text-align: center;
+
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    .data-box {
+                        padding-left: 15px;
+                        padding-right: 15px;
+
+                        span {
+                            color: #3e3e3e;
+                            display: block;
+
+                            margin-bottom: 10px;
+                        }
+                    }
                 }
+
+                &--add-button {
+
+                    display: flex;
+                    justify-content: center;
+
+                    span {
+                        color: #3e3e3e;
+    
+                        display: block;
+    
+                        margin: auto;
+                    }
+
+                }
+
+            }
+
+            &__lib-box {
+
             }
         }
     }
