@@ -1,0 +1,27 @@
+.collection {
+  background-color: #f4f4f4df;
+}
+
+.collection__navigation {
+  width: calc(100vw - 80px);
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.collection__navigation .material-symbols-outlined {
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.collection__navigation__text {
+  cursor: pointer;
+}

@@ -5,6 +5,11 @@
     height: calc(100vh - 56px);
     width: 100vw;
 
+    &--long {
+        height: auto !important;
+        min-height: calc(100vh - 56px) !important;
+    }
+
     img {
         width: 100%;
         user-select: none;

@@ -107,6 +107,8 @@
         padding-top: 30px;
         padding-bottom: 30px;
 
+        position: relative;
+
         &__headline {
             font-size: 20px;
             font-weight: 500;
@@ -121,17 +123,20 @@
             display: flex;
             flex-wrap: wrap;
 
+            // position: relative;
 
             margin-top: 30px;
 
             &__box {
 
+                background-color: #f0f0f0;
+                
                 &:active {
                     transform: scale(0.98);
                 }
 
                 &:hover {
-                    background-color: #efefef;
+                    background-color: #e4e3e3;
                 }
 
                 cursor: pointer;
@@ -179,8 +184,20 @@
                     display: flex;
                     justify-content: center;
 
+                    background-color: #202020;
+
+                    &:hover {
+                        span {
+                            font-weight: 400;
+                            color: #535353 !important;
+                        }
+                    }
+
                     span {
-                        color: #3e3e3e;
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #ffff;
+
     
                         display: block;
     
@@ -190,9 +207,111 @@
                 }
 
             }
+        }
 
-            &__lib-box {
+        &__wrapper {
 
+            position: absolute;
+            top: calc(-94px * 2 - 57px);
+            left: -22px;
+          
+            width: 100vw;
+            height: 100vh;
+          
+            z-index: 9999;
+
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            
+            background-color: rgba(154, 154, 154, 0.646);
+
+            &__add-form {
+                width: 400px;
+                height: 200px;
+
+                position: absolute;
+                top: 50% ;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+                
+                background-color: #ffffff;
+                border: 1px solid rgb(156, 156, 156);
+
+                border-radius: 15px;
+
+                -webkit-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+                -moz-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+                box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+            
+                padding: 20px;
+                padding-top: 25px;
+
+                &__headline {
+                    font-size: 20px;
+                    font-weight: 500;
+
+
+                    // padding-top: 25px;
+
+                    margin-bottom: 35px;
+
+                    justify-content: space-between;
+                    display: flex;
+
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #3e3e3e;
+
+                    span {
+                        display: block;
+                    }
+
+                    .close {
+                        cursor: pointer;
+
+                        position: relative;
+                        top: -2px;
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+
+                input {
+                    border-radius: 15px;
+                    border: 1px solid #c8c8c8;
+    
+                    font-size: 18px;
+                    padding: 5px 15px 5px 15px;
+    
+                }
+
+                label {
+                    margin-right: 20px;
+                }
+
+                &__button-section {
+                    display: flex;
+                    justify-content: center;
+
+                    margin-top: 40px;
+                    button {
+
+
+                        color: rgb(251, 251, 251);
+                        font-weight: 600;
+                        border: 1px solid rgb(50, 50, 50);
+                        background-color: rgb(50, 50, 50);
+
+                        cursor: pointer;
+                        
+                        padding: 9px 16px 9px 16px;
+                        border-radius: 15px;
+            
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                }
             }
         }
     }

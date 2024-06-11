@@ -5,6 +5,11 @@
   width: 100vw;
 }
 
+.userPanel--long {
+  height: auto !important;
+  min-height: calc(100vh - 56px) !important;
+}
+
 .userPanel img {
   width: 100%;
   user-select: none;

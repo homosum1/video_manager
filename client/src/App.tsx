@@ -11,6 +11,7 @@ import { SignupPage } from './sites/Signup/signupPage';
 import { Navbar } from './shared/navbar';
 import { AuthProvider } from './AuthContext';
 import { UserPanel } from './sites/UserPanel/userPanel';
+import { Collection } from './sites/UserPanel/Collection/Collection';
 
 
 function App() {
@@ -22,19 +23,6 @@ function App() {
     document.head.appendChild(link);
   }
 
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/getAll')
-  //     .then(response => response.json())
-  //     .then(data => setItems(data))
-  //     .catch(error => {
-  //       console.error('Wystąpił błąd:', error);
-  //       setError(error);
-  //     });
-  // }, [selectedItems]);
-
-  
   useEffect(() => {
     loadGoogleFonts();
   }, []);
@@ -49,6 +37,7 @@ function App() {
           <Route path="/login" element={ <LoginPage/>} />
           <Route path="/signup" element={ <SignupPage/>} />
           <Route path="/panel" element={ <UserPanel/>} />
+          <Route path="/collection/:id" element={ <Collection/>} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

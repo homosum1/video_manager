@@ -27,48 +27,94 @@ export const Categories = (props: CategoriesProps) => {
 
     const [menuDisplayed, setMenuDisplayed]= useState(false);
 
-    useEffect(() => {
-        const fetchCollections = async () => {
-          const url =
-            `https://video.bunnycdn.com/library/${libraryID}/collections?page=1&itemsPerPage=100&orderBy=date&includeThumbnails=false`;
-          const options = {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-              AccessKey: apiKey,
-            },
-          };
-    
-          try {
-            if (apiKey && libraryID) {
-              const response = await fetch(url, options);
-              if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-              }
-    
-              const data = await response.json();
-              setTotalItems(data.totalItems);
-    
-              console.log(data.items);
-              setCollections(data.items);
+    const [collectionName, setCollectionName] = useState('');
 
-              setError("");
-            }
-          } catch (err) {
-            if (err instanceof Error) {
-              setError(err.message);
-            } else {
-              setError("Unexpected error");
-            }
-          }
-        };
-    
+    const fetchCollections = async () => {
+
+      if ((!libraryID) || (!apiKey)) {
+        console.log('returned!');
+      }
+
+      const url =
+        `https://video.bunnycdn.com/library/${libraryID}/collections?page=1&itemsPerPage=100&orderBy=date&includeThumbnails=false`;
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          AccessKey: apiKey,
+        },
+      };
+
+      try {
+  
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setTotalItems(data.totalItems);
+
+        console.log(data.items);
+        setCollections(data.items);
+
+        setError("");
+        
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Unexpected error");
+        }
+      }
+    };
+
+    useEffect(() => {   
         fetchCollections();
     }, [libraryID]);
+
+
+
+
+    const handleSubmit = async (event: React.FormEvent) => {
+      event.preventDefault();
+      
+      const url = `https://video.bunnycdn.com/library/${libraryID}/collections`;
+      const options = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+          AccessKey: apiKey
+        },
+        body: JSON.stringify({ name: collectionName })
+      };
+  
+      try {
+        const res = await fetch(url, options);
+        const json = await res.json();
+        if (res.ok) {
+          setError('');
+
+          // ok
+          setMenuDisplayed(false);
+          fetchCollections();
+        } else {
+          setError(json.message || 'Error occurred');
+        }
+      } catch (err) {
+        console.error('error:', err);
+        setError('Error occurred');
+      }
+    };
 
     const addCatalouge = () => {
         setMenuDisplayed(true);
     }
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setCollectionName(event.target.value);
+    };
 
     return (
         <div className="mainUserPanel__categories-section">
@@ -85,7 +131,11 @@ export const Categories = (props: CategoriesProps) => {
                 <div className="mainUserPanel__categories-section__categories">
                     {
                       collections.map((collection) => (
-                        <div key={collection.guid} className="mainUserPanel__categories-section__categories__box mainUserPanel__categories-section__categories__box--collection">
+                        <div 
+                          key={collection.guid} 
+                          onClick={() => navigate(`/collection/${collection.guid}`)}
+                          className="mainUserPanel__categories-section__categories__box mainUserPanel__categories-section__categories__box--collection"
+                        >
                             <span className="name">{collection.name}</span>
                             <div className="data-box">
                               <span>liczba video: {collection.videoCount}</span>
@@ -102,7 +152,32 @@ export const Categories = (props: CategoriesProps) => {
                 </div>
 
                 {
-                    menuDisplayed ? "" : ""
+                  menuDisplayed ? 
+                  <div className="mainUserPanel__categories-section__wrapper">
+                    <form className="mainUserPanel__categories-section__wrapper__add-form" onSubmit={handleSubmit}>
+                        <div>
+                          <div className="mainUserPanel__categories-section__wrapper__add-form__headline">
+                            <span>
+                              Dodawanie kolekcji
+                            </span>
+                            <span onClick={() => setMenuDisplayed(false)} className="close">x</span>
+                          </div>
+                        
+                          <label htmlFor="collectionName">Nazwa kolekcji:</label>
+                          <input
+                            type="text"
+                            id="collectionName"
+                            value={collectionName}
+                            onChange={handleInputChange}
+                            required
+                          />
+                        </div>
+                        <div className="mainUserPanel__categories-section__wrapper__add-form__button-section">
+                          <button type="submit">Dodaj kolekcję</button>
+                        </div>
+                    </form>
+                  </div>
+                  : ""
                 }
       </div>
     );

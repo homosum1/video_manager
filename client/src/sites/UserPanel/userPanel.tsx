@@ -44,7 +44,7 @@ export const UserPanel = () => {
 
 
     return (
-        <div className="userPanel">
+        <div className={`userPanel ${apiKeyPossed ? 'userPanel--long' : ''}`}>
             {
                 apiKeyPossed ? <MainUserPanel fetchProfile={fetchProfile}/> : <APIKey username={username} fetchProfile={fetchProfile}/>
             }
