@@ -187,7 +187,6 @@ const getLibraryID = async (req, res) => {
     return res.status(500).json({ message: 'Coś poszło nie tak' });
   }
 };
-
 ```
 
 Klient: 
@@ -200,7 +199,32 @@ Elementy klienta wysyłają zapytania zarówno do naszej aplikacji serwerowej ja
 serwera mają na celu pozyskanie informacji potrzebnych w celu wykonania zapytania do serwisu bunny.net, następnie informacje uzyskane z serwisu
 są przedstawiane użytkownikowi.
 
+```js
+ const url = `https://video.bunnycdn.com/library/${libraryID}/collections`;
+      const options = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+          AccessKey: apiKey
+        },
+```
+```js
+      const url = `https://video.bunnycdn.com/library/${libraryID}/collections/${id}?includeThumbnails=true`;
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          AccessKey: apiKey,
+        },
+```
+Do zapytań wykorzystywany jest fetch.
 
+Komponenty do komunikacji pomiędzy sobą wykorzystują hooki służące do przekazywania danych
+```js
+    const [collection, setCollection] = useState<VideoCollection>();
+  const [videos, setVideos] = useState<Video[]>([]);
+```
 
 
 
