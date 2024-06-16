@@ -223,7 +223,7 @@ Do zapytań wykorzystywany jest fetch.
 Komponenty do komunikacji pomiędzy sobą wykorzystują hooki służące do przekazywania danych
 ```js
     const [collection, setCollection] = useState<VideoCollection>();
-  const [videos, setVideos] = useState<Video[]>([]);
+    const [videos, setVideos] = useState<Video[]>([]);
 ```
 
 
