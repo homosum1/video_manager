@@ -52,6 +52,31 @@ export const Collection = (props: CollectionProps) => {
     fetchApiKey();
   }, []);
 
+  const fetchVideos = async () => {
+    const url = `https://video.bunnycdn.com/library/${libraryID}/videos?page=1&itemsPerPage=100&orderBy=date`;
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        AccessKey: apiKey,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        setError("Coś poszło nie tak");
+      }
+      const json = await response.json();
+      const videos: Video[] = json.items;
+
+      setVideos(videos);
+    } catch (err) {
+      console.error("Error:", err);
+      setError("Coś poszło nie tak");
+    }
+  };
+
   useEffect(() => {
     const fetchCollectionData = async () => {
       const url = `https://video.bunnycdn.com/library/${libraryID}/collections/${id}?includeThumbnails=true`;
@@ -72,31 +97,6 @@ export const Collection = (props: CollectionProps) => {
         setCollection(json);
       } catch (err) {
         console.log("error");
-        setError("Coś poszło nie tak");
-      }
-    };
-
-    const fetchVideos = async () => {
-      const url = `https://video.bunnycdn.com/library/${libraryID}/videos?page=1&itemsPerPage=100&orderBy=date`;
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          AccessKey: apiKey,
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        if (!response.ok) {
-          setError("Coś poszło nie tak");
-        }
-        const json = await response.json();
-        const videos: Video[] = json.items;
-
-        setVideos(videos);
-      } catch (err) {
-        console.error("Error:", err);
         setError("Coś poszło nie tak");
       }
     };
@@ -208,7 +208,7 @@ export const Collection = (props: CollectionProps) => {
           apiKey={apiKey}
           libraryID={libraryID}
           collectionID={id}
-
+          fetchVideos={fetchVideos}
           setMenuDisplayed={setMenuDisplayed}
         />
       ) : (

@@ -12,6 +12,7 @@ import { Navbar } from './shared/navbar';
 import { AuthProvider } from './AuthContext';
 import { UserPanel } from './sites/UserPanel/userPanel';
 import { Collection } from './sites/UserPanel/Collection/Collection';
+import { VideoPanel } from './sites/UserPanel/Video/Video';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/signup" element={ <SignupPage/>} />
           <Route path="/panel" element={ <UserPanel/>} />
           <Route path="/collection/:libraryID/:id" element={ <Collection/>} />
+          <Route path="/video/:libraryID/:collectionID/:videoID" element={<VideoPanel/>}/>
 
           <Route path="*" element={<NotFound />} />
         </Routes>

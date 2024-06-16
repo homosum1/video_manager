@@ -16,6 +16,7 @@ interface VideoAddPanelProps {
   collectionID: string;
   libraryID: string;
   setMenuDisplayed: React.Dispatch<React.SetStateAction<boolean>>;
+  fetchVideos: () => Promise<void>;
 }
 
 export const VideoAddPanel = (props: VideoAddPanelProps) => {
@@ -84,16 +85,13 @@ export const VideoAddPanel = (props: VideoAddPanelProps) => {
 
     const url = `https://video.bunnycdn.com/library/${libraryID}/videos/${videoId}`;
 
-    const formData = new FormData();
-    formData.append("file", file);
-
     const options = {
       method: "PUT",
       headers: {
         accept: 'application/json',
         AccessKey: apiKey,
       },
-      body: formData,
+      body: file,
     };
 
     try {
@@ -107,6 +105,9 @@ export const VideoAddPanel = (props: VideoAddPanelProps) => {
       }
 
       setMessage("Video zostało wgrane!");
+
+      props.fetchVideos();
+      props.setMenuDisplayed(false);
     } catch (error) {
       console.error('Błąd podczas uploadowania video:', error);
       setMessage('Błąd podczas uploadowania video');
