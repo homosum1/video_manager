@@ -171,6 +171,7 @@ export const Collection = (props: CollectionProps) => {
             <div className="collection__videos__content">
               {videos.map((video) => (
                 <div
+                  onClick={() => navigate(`/video/${libraryID}/${id}/${video.guid}`)}
                   key={video.guid}
                   className="collection__videos__content__box collection__videos__content__box--collection"
                 >

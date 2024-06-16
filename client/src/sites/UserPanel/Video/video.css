@@ -1,0 +1,43 @@
+.video__stats {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+
+.video__stats span {
+  display: block;
+  margin-right: 30px;
+  color: #484848;
+}
+
+.video__stats span b.green {
+  color: green !important;
+}
+
+.video__stats span b.red {
+  color: red !important;
+}
+
+.video iframe {
+  border: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.video .videoContainer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.video .videoContainer {
+  height: 270px;
+  width: 480px;
+}
