@@ -87,6 +87,7 @@ Aplikacja dzieli się na część serwerową oraz kliencką, odpowiadające kole
 z nich z osobna.
 
 Serwer:
+
 W katalogu znajdują się 2 foldery; `./server/src/Auth` oraz `./server/src/User` oraz 2 pliki; `./server/src/database.js` i `./server/src/index.js`.
 `database.js` jest plikiem zawierającym definicje Sequlize, determinuje też baze danych jako SQLite.
 
@@ -190,9 +191,15 @@ const getLibraryID = async (req, res) => {
 ```
 
 Klient: 
+
 W katalogu znajdują się podkatalogi `shared` oraz `sites`, zawierające kolejne elementy wspólne dla stron aplikacji klienckiej, w tym przypadku 
 pasek nawigacyjny oraz same strony, które zależnie od złożoności zawierają jedynie plik strony oraz jej styl `.tsx` oraz `.scss`, lub kolekcje
 podkatalogów zawierających elementy danej strony.
+
+Elementy klienta wysyłają zapytania zarówno do naszej aplikacji serwerowej jak również bezpośrednio do serwisu bunny.net, zapytania do naszego 
+serwera mają na celu pozyskanie informacji potrzebnych w celu wykonania zapytania do serwisu bunny.net, następnie informacje uzyskane z serwisu
+są przedstawiane użytkownikowi.
+
 
 
 
