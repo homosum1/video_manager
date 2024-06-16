@@ -11,7 +11,6 @@ import "./collection.scss";
 import { VideoCollection } from "../Categories/Categories";
 import { Video } from "./VideoInterface";
 
-import { useDropzone } from "react-dropzone";
 import { VideoAddPanel } from "./VideoAddPanel/VideoAddPanel";
 
 interface CollectionProps {}
@@ -39,7 +38,7 @@ export const Collection = (props: CollectionProps) => {
 
         if (response.status === 200) {
           const data = await response.json();
-          console.log(apiKey);
+        //   console.log(data.apiKey);
           setApiKey(data.apiKey);
         } else {
           const errorData = await response.json();
@@ -204,7 +203,17 @@ export const Collection = (props: CollectionProps) => {
         </div>
       </div>
 
-      {menuDisplayed ? <VideoAddPanel setMenuDisplayed={setMenuDisplayed}/> : ""}
+      {menuDisplayed && id !== undefined && apiKey !== undefined && libraryID !== undefined? (
+        <VideoAddPanel
+          apiKey={apiKey}
+          libraryID={libraryID}
+          collectionID={id}
+
+          setMenuDisplayed={setMenuDisplayed}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 };
