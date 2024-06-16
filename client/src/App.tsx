@@ -37,7 +37,7 @@ function App() {
           <Route path="/login" element={ <LoginPage/>} />
           <Route path="/signup" element={ <SignupPage/>} />
           <Route path="/panel" element={ <UserPanel/>} />
-          <Route path="/collection/:id" element={ <Collection/>} />
+          <Route path="/collection/:libraryID/:id" element={ <Collection/>} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

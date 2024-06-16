@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface VideoCollection {
+export interface VideoCollection {
   videoLibraryId: number;
   guid: string;
   name: string;
@@ -133,13 +133,13 @@ export const Categories = (props: CategoriesProps) => {
                       collections.map((collection) => (
                         <div 
                           key={collection.guid} 
-                          onClick={() => navigate(`/collection/${collection.guid}`)}
+                          onClick={() => navigate(`/collection/${libraryID}/${collection.guid}`)}
                           className="mainUserPanel__categories-section__categories__box mainUserPanel__categories-section__categories__box--collection"
                         >
                             <span className="name">{collection.name}</span>
                             <div className="data-box">
                               <span>liczba video: {collection.videoCount}</span>
-                              <span>rozmiar: {collection.totalSize} MB</span>
+                              <span>rozmiar: {(collection.totalSize/1048576).toFixed(1)} MB</span>
                             </div>
                         </div>
                       ))

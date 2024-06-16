@@ -7,7 +7,7 @@
   font-size: 20px;
   font-weight: 500;
   margin-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-left: 20px;
   margin-right: 20px;
   padding-left: 20px;
@@ -24,4 +24,208 @@
 
 .collection__navigation__text {
   cursor: pointer;
+}
+
+.collection__delete-section {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c8c8c8;
+  margin-bottom: 20px;
+}
+
+.collection__delete-section button {
+  margin-left: 15px;
+  border-radius: 15px;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  cursor: pointer;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #202020;
+  border: 1px solid #c8c8c8;
+  background-color: #fbfbfb;
+  margin-right: 20px;
+}
+
+.collection__videos {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.collection__videos__name {
+  font-size: 20px;
+}
+
+.collection__videos__name b {
+  font-weight: 500;
+}
+
+.collection__videos__header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.collection__videos__header span {
+  color: #393939;
+  margin-right: 30px;
+}
+
+.collection__videos__content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.collection__videos__content__box {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  width: 200px;
+  height: 150px;
+  border-radius: 15px;
+  border: 1px solid #9c9c9c;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.collection__videos__content__box:active {
+  transform: scale(0.98);
+}
+
+.collection__videos__content__box:hover {
+  background-color: #e4e3e3;
+}
+
+.collection__videos__content__box--collection .name {
+  display: block;
+  width: calc(100% - 30px);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.collection__videos__content__box--collection .data-box {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 15px;
+}
+
+.collection__videos__content__box--collection .data-box span {
+  color: #3e3e3e;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.collection__videos__content__box--collection .data-box span .green {
+  color: green;
+}
+
+.collection__videos__content__box--collection .data-box span .red {
+  color: red;
+}
+
+.collection__videos__content__box--add-button {
+  display: flex;
+  justify-content: center;
+  background-color: #202020;
+}
+
+.collection__videos__content__box--add-button:hover span {
+  font-weight: 400;
+  color: #535353 !important;
+}
+
+.collection__videos__content__box--add-button span {
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffff;
+  display: block;
+  margin: auto;
+}
+
+.add-video {
+  position: absolute !important;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgba(154, 154, 154, 0.646);
+}
+
+.add-video__add-form {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 1px solid #9c9c9c;
+  border-radius: 15px;
+  -webkit-box-shadow: 8px 8px 24px -13px #42445a;
+  -moz-box-shadow: 8px 8px 24px -13px #42445a;
+  box-shadow: 8px 8px 24px -13px #42445a;
+  padding: 20px;
+  padding-top: 25px;
+}
+
+.add-video__add-form__headline {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 35px;
+  justify-content: space-between;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.add-video__add-form__headline span {
+  display: block;
+}
+
+.add-video__add-form__headline .close {
+  cursor: pointer;
+  position: relative;
+  top: -2px;
+}
+
+.add-video__add-form__headline .close:hover {
+  transform: scale(1.05);
+}
+
+.add-video__add-form input {
+  border-radius: 15px;
+  border: 1px solid #c8c8c8;
+  font-size: 18px;
+  padding: 5px 15px 5px 15px;
+}
+
+.add-video__add-form label {
+  margin-right: 20px;
+}
+
+.add-video__add-form__button-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.add-video__add-form__button-section button {
+  color: #fbfbfb;
+  font-weight: 600;
+  border: 1px solid #323232;
+  background-color: #323232;
+  cursor: pointer;
+  padding: 9px 16px 9px 16px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
 }
