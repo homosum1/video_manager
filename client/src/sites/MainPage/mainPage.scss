@@ -1,92 +1,91 @@
 .mainPage {
-    display: flex;
+  display: flex;
+  height: calc(100vh - 56px);
 
-    height:calc(100vh - 56px);
+  &__buttons {
+    margin-top: 15px;
 
-    &__buttons {
-        margin-top: 15px;
+    button {
+      margin-right: 15px;
+    }
+  }
+
+  &__text-box {
+    position: absolute;
+    width: 50%;
+    height: calc(100vh - 55px);
+
+    top: 55px;
+    left: 0px;
+
+    &__boundry {
+
+      display: block;
+      position: relative;
+
+      --spacing: 15%;
+      top: var(--spacing);
+
+      -webkit-transform: translateY(var(--spacing));
+      -ms-transform: translateY(var(--spacing));
+
+      transform: translateY(var(--spacing));
+
+      width: 80%;
+      margin-left: 10%;
+
+      &__headline {
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      &__text {
+        line-height: 24px;
+        padding-top: 15px;
+        font-size: 18px;
+
+        color: #363636;
+      }
+
+      &__call-to-action {
+        width: 50%;
+
+        margin-top: 25px;
+        padding-top: 25px;
+
+        border-top: 1px solid #000000;
+
+        &__headline {
+          font-size: 16px;
+          color: #363636;
+          // font-weight: 600;
+        }
 
         button {
-            margin-right: 15px;
+
+          margin-top: 20px;
+
+          cursor: pointer;
+          color: rgb(251, 251, 251);
+          font-weight: 600;
+          border: 1px solid rgb(50, 50, 50);
+          background-color: rgb(50, 50, 50);
+
+          padding: 9px 16px 9px 16px;
+          border-radius: 15px;
+
+          font-size: 16px;
+          font-weight: 700;
         }
+      }
     }
 
-    &__text-box {
-        position: absolute;
-        width: 50%;
-        height: calc(100vh - 55px);
+  }
 
-        top: 55px;
-        left: 0px;
-
-        &__boundry {
-
-            display: block;
-            position: relative;
-
-            --spacing: 15%;
-            top: var(--spacing);
-            
-            -webkit-transform: translateY(var(--spacing));
-            -ms-transform: translateY(var(--spacing));
-        
-            transform: translateY(var(--spacing));
-
-            width: 80%;
-            margin-left: 10%;
-
-            &__headline {
-                font-size: 28px;
-                font-weight: 600;
-            }
-
-            &__text {
-                line-height: 24px;
-                padding-top: 15px;
-                font-size: 18px;
-
-                 color: #363636;
-            }
-
-            &__call-to-action {
-                width: 50%;
-
-                margin-top: 25px;
-                padding-top: 25px;
-
-                border-top: 1px solid #000000;
-
-                &__headline {
-                    font-size: 16px;
-                    color: #363636;
-                    // font-weight: 600;
-                }
-
-                button {
-
-                    margin-top: 20px;
-
-                    cursor: pointer;
-                    color: rgb(251, 251, 251);
-                    font-weight: 600;
-                    border: 1px solid rgb(50, 50, 50);
-                    background-color: rgb(50, 50, 50);
-
-                    padding: 9px 16px 9px 16px;
-                    border-radius: 15px;
-        
-                    font-size: 16px;
-                    font-weight: 700;
-                }
-            }
-        }
-
-    }
-
-    img {
-        width: 100%;
-        user-select: none;
-        pointer-events: none;
-    }
+  img {
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+  }
 
 }

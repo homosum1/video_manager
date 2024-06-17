@@ -6,11 +6,11 @@ import { Route, Routes } from 'react-router-dom';
 
 import { MainPage } from './sites/MainPage/MainPage';
 import { NotFound } from './sites/NotFound/NotFound';
-import { LoginPage } from './sites/Login/loginPage';
-import { SignupPage } from './sites/Signup/signupPage';
-import { Navbar } from './shared/navbar';
+import { LoginPage } from './sites/Login/LoginPage';
+import { SignupPage } from './sites/Signup/SignupPage';
+import { Navbar } from './shared/Navbar/Navbar';
 import { AuthProvider } from './AuthContext';
-import { UserPanel } from './sites/UserPanel/userPanel';
+import { UserPanel } from './sites/UserPanel/UserPanel';
 import { Collection } from './sites/UserPanel/Collection/Collection';
 import { VideoPanel } from './sites/UserPanel/Video/Video';
 

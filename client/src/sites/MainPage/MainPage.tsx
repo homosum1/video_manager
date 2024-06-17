@@ -1,8 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-
-
 import "./mainPage.scss";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export const MainPage = () => {
     const navigate = useNavigate();
@@ -26,14 +23,14 @@ export const MainPage = () => {
                             <span>Twórz, Zarządzaj, Inspiruj</span>
                         </div>
 
-                            <button onClick={() => navigate('/signup')}>Utwórz konto</button>
-                        
+                        <button onClick={() => navigate('/signup')}>Utwórz konto</button>
+
                     </div>
                 </div>
-                
+
             </div>
 
-            <img src={process.env.PUBLIC_URL + '/cameraMan.jpg'} alt="Example" />
+            <img src={process.env.PUBLIC_URL + '/cameraMan.jpg'} alt="Example"/>
         </div>
     )
 }

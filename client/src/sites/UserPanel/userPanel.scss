@@ -1,119 +1,97 @@
 .userPanel {
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
+  height: calc(100vh - 56px);
+  width: 100vw;
 
-    height: calc(100vh - 56px);
-    width: 100vw;
+  &--long {
+    height: auto !important;
+    min-height: calc(100vh - 56px) !important;
+  }
 
-    &--long {
-        height: auto !important;
-        min-height: calc(100vh - 56px) !important;
+  img {
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__api {
+
+    width: 490px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      display: block;
     }
 
-    img {
+    &__name {
+      width: 130px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 22px;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgb(50, 50, 50);
+
+      span {
+        font-weight: 600;
         width: 100%;
-        user-select: none;
-        pointer-events: none;
-    }
-
-    &__api {
-
-        width: 490px;
-
-
-        display: block;
-        position: absolute;
-        top: 50%;
-        
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-    
-        transform: translateY(-50%);
-
-        margin-left: auto;
-        margin-right: auto;
-        
-        left: 0; 
-        right: 0; 
-
+        text-align: center;
         justify-content: center;
-        align-items: center;
-
-        span {
-            display: block;
-        }
-
-        &__name {
-            width: 130px;
-            margin-left: auto;
-            margin-right: auto;
-
-            font-size: 22px;
-
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid rgb(50, 50, 50);
-
-            span {
-                font-weight: 600;
-
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-        }
-
-        &__headline {
-            font-size: 18px;
-            font-weight: 450;
-
-            a {
-                color: rgb(50, 50, 50);
-            }
-        }
-
-        &__input-form {
-            margin-top: 30px;
-
-            margin-left: 15px;
-            margin-right: 15px;
-
-            display: flex;
-
-            input {
-                
-                display: block;
-                margin: 13px;
-    
-                font-size: 20px;
-                border-radius: 5px;
-                border: 1px solid #bdbdbd;
-                padding: 7px 12px 7px 12px;
-
-
-            }
-
-            button {       
-                cursor: pointer;
-
-                position: relative;
-                top: 12px;
-
-                height: 40px;
-                margin-left: 20px;
-
-                cursor: pointer;
-                color: rgb(251, 251, 251);
-                font-weight: 600;
-                border: 1px solid rgb(50, 50, 50);
-                background-color: rgb(50, 50, 50);
-        
-                padding: 9px 16px 9px 16px;
-                border-radius: 15px;
-        
-                font-size: 16px;
-                font-weight: 700;
-            }
-        }
+      }
     }
+
+    &__headline {
+      font-size: 18px;
+      font-weight: 450;
+
+      a {
+        color: rgb(50, 50, 50);
+      }
+    }
+
+    &__input-form {
+      margin-top: 30px;
+      margin-left: 15px;
+      margin-right: 15px;
+      display: flex;
+
+      input {
+        display: block;
+        margin: 13px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: 1px solid #bdbdbd;
+        padding: 7px 12px 7px 12px;
+      }
+
+      button {
+        cursor: pointer;
+        position: relative;
+        top: 12px;
+        height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: rgb(251, 251, 251);
+        font-weight: 600;
+        border: 1px solid rgb(50, 50, 50);
+        background-color: rgb(50, 50, 50);
+        padding: 9px 16px 9px 16px;
+        border-radius: 15px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
 }

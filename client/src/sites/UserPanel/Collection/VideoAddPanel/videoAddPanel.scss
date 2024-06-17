@@ -1,38 +1,27 @@
 .add-video {
   position: absolute !important;
-
   top: 0;
-
   width: 100vw;
   height: 100vh;
-
   z-index: 9999;
-
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-
   background-color: rgba(154, 154, 154, 0.646);
 
   &__add-form {
     width: 400px;
     height: 320px;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     background-color: #ffffff;
     border: 1px solid rgb(156, 156, 156);
-
     border-radius: 15px;
-
     -webkit-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
-
-    padding: 20px;
-    padding-top: 25px;
+    padding: 25px 20px 20px;
 
     &__wrapper {
         display: flex;
@@ -47,14 +36,9 @@
     &__headline {
       font-size: 20px;
       font-weight: 500;
-
-      // padding-top: 25px;
-
       margin-bottom: 35px;
-
       justify-content: space-between;
       display: flex;
-
       padding-bottom: 20px;
       border-bottom: 1px solid #3e3e3e;
 
@@ -64,7 +48,6 @@
 
       .close {
         cursor: pointer;
-
         position: relative;
         top: -2px;
         &:hover {
@@ -76,11 +59,8 @@
     input {
       border-radius: 15px;
       border: 1px solid #c8c8c8;
-
       font-size: 18px;
       padding: 5px 15px 5px 15px;
-
-    //   width: max-content;
     }
 
     label {
@@ -92,29 +72,22 @@
         border: 1px solid black;
         padding: 20px;
         margin-top: 20px;
-
         border-radius: 15px;
-
         text-align: center;
     }
 
     &__button-section {
       display: flex;
       justify-content: center;
-
       margin-top: 40px;
 
       button {
         color: rgb(251, 251, 251);
-        font-weight: 600;
         border: 1px solid rgb(50, 50, 50);
         background-color: rgb(50, 50, 50);
-
         cursor: pointer;
-
         padding: 9px 16px 9px 16px;
         border-radius: 15px;
-
         font-size: 16px;
         font-weight: 500;
       }

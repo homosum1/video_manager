@@ -1,15 +1,14 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../AuthContext";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {useAuth} from "../../AuthContext";
 
 import "./userPanel.scss";
-import { APIKey } from "./APIKey/APIKey";
-import { MainUserPanel } from "./MainUserPanel/MainUserPanel";
+import {APIKey} from "./APIKey/APIKey";
+import {MainUserPanel} from "./MainUserPanel/MainUserPanel";
 
 export const UserPanel = () => {
     const navigate = useNavigate();
-    const { logout } = useAuth();
-    
+    const {logout} = useAuth();
     const [error, setError] = useState('');
     const [username, setUsername] = useState('');
     const [apiKeyPossed, setApiKeyPossesed] = useState(false);
@@ -42,11 +41,11 @@ export const UserPanel = () => {
     }, []);
 
 
-
     return (
         <div className={`userPanel ${apiKeyPossed ? 'userPanel--long' : ''}`}>
             {
-                apiKeyPossed ? <MainUserPanel fetchProfile={fetchProfile}/> : <APIKey username={username} fetchProfile={fetchProfile}/>
+                apiKeyPossed ? <MainUserPanel fetchProfile={fetchProfile}/> :
+                    <APIKey username={username} fetchProfile={fetchProfile}/>
             }
         </div>
     );
