@@ -39,12 +39,12 @@ Baza danych:
     
 ![database](doc_images/database.png)
 
-id: numer porządkowy użytkownika
-username: nazwa wybrana przez użytkownika
-email: adres email użytkownika
-password: hasło użytkownika
-apiKey: klucz API slużący do powiązania konta z bunny.net
-libraryID: numer porządkowy biblioteki w której przetrzymujemy katalogi z filmami
+- id: numer porządkowy użytkownika
+- username: nazwa wybrana przez użytkownika
+- email: adres email użytkownika
+- password: hasło użytkownika
+- apiKey: klucz API slużący do powiązania konta z bunny.net
+- libraryID: numer porządkowy biblioteki w której przetrzymujemy katalogi z filmami
 
 Biblioteki, katalogi oraz filmy przechowywane są po stronie serwisu bunny.net, aplikacja uzyskuje do nich dostęp poprzez powiązanie konta użytkownika z kluczem API
 oraz numerem porządkowym biblioteki. Z tego powodu w bazie danych konieczne jest jedynie przechowywanie informacji o użytkownikach.
@@ -60,7 +60,18 @@ Po zalogowaniu użytkownik przenoszony jest na stronę główną: tam następuje
 oba powiązane z kontem użytkownika, następnie korzystając z elementu Categories wysłane zostaje zapytanie do serwisu bunny.net, korzystając z klucza
 API jako autoryzacji oraz z ID biblioteki jako parametru w adresie URL, na tej podstawie zwracana jest lista katalogów, która wyświetlana jest 
 użytkownikowi na stronie głównej. Zależnie od wyboru użytkownika następnym krokiem może być np. wejście w konkretny katalog lub utworzenie nowego:
-wykonywane jest wtedy kolejne zapytanie w przypadku wyboru katalogu wykorzystujące jako parametr zarówno ID biblioteki jak i samego katalogu.
+wykonywane jest wtedy kolejne zapytanie w przypadku wyboru katalogu wykorzystujące jako parametr zarówno ID biblioteki jak i samego katalogu. W 
+analogiczny sposób użytkownika ma możliwość uploadu oraz usunięcia danego filmu z katalogu, jak również jego podglądu.
+
+Układ danych po stronie serwisu bunny.net:
+
+![bunny-tree](doc_images/bunny-tree.png)
+
+Schemat zapytania do serwisu bunny.net wykorzystuje klucz API do autoryzacji użytkownika na platformie bunny.net.
+Każde ID służy do identyfikacji konkretnego obiektu po stronie serwisu. Zidentyfikowane ID może być użyte do uzyskania kolejnego, bardziej szczegółowego obiektu,
+który jest częścią wcześniej uzyskanej większej kolekcji. Proces ten kontynuuje się, aż do uzyskania ID danego filmu.
+
+![bunny-flow](doc_images/bunny-flow.png)
 
 Endpointy:
 
@@ -218,13 +229,21 @@ są przedstawiane użytkownikowi.
           AccessKey: apiKey,
         },
 ```
-Do zapytań wykorzystywany jest fetch.
-
-Komponenty do komunikacji pomiędzy sobą wykorzystują hooki służące do przekazywania danych
+```js
+    const url = `https://video.bunnycdn.com/library/${libraryID}/videos/${videoID}`;
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        AccessKey: apiKey,
+      },
+```
+Komponenty do komunikacji pomiędzy sobą wykorzystują React hooki służące do przekazywania danych
 ```js
     const [collection, setCollection] = useState<VideoCollection>();
     const [videos, setVideos] = useState<Video[]>([]);
 ```
+Do trasowania po stronie klienta wykorzystywany jest React Router.
 
 
 
