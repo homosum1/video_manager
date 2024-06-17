@@ -6,7 +6,7 @@ const {
   signupUser,
   isLoggedIn,
   authenticateUser
-} = require('./AuthController');
+} = require('./authController');
 
 const router = express.Router();
 

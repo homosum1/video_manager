@@ -94,6 +94,9 @@ Związane z użytkowaniem aplikacji
 
 ### 4. Implementacja
 
+Aplikacja korzysta z technologi wymienionych w punkcie 2.: Node.js, Express, React, SQLite, Sequalize, JWT, Bycrypt.
+
+
 Aplikacja dzieli się na część serwerową oraz kliencką, odpowiadające kolejno katalogom `./client` oraz `./server`. W tym rozdziale omówione jest każdy
 z nich z osobna.
 
@@ -141,7 +144,7 @@ app.listen(port, () => {
 ```
 
 Katalogi `Auth` oraz `User` zawierają kontrolery oraz routingi związane z autoryzacją użtkownika oraz operacjami związanymi z jego instancją w bazie 
-danych, z racji na to katalog `User` zawiera dodatkowo plik definiujący model dla użytkownika `server/src/User/UserModel.js`:
+danych, z racji na to katalog `User` zawiera dodatkowo plik definiujący model dla użytkownika `server/src/User/userModel.js`:
 
 ```js
 const User = sequelize.define('User', {
