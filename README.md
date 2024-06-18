@@ -15,7 +15,7 @@ asynchronicznie z wykorzystaniem REST API.
 Część serwerowa wykorzystuje środowisko uruchomieniowe Node.js oraz framework Express, korzysta ona z relacyjnej bazy danych SQLite przy wykorzystaniu Sequalize,
 który pełni tutaj role ORM'a (Object-Relational Mapping). Serwer posługuje się również otwartym standardem przemysłowy JWT (JSON Web Token). Pozyskiwanie informacji 
 oraz filmów odbywa się przy pomocy API serwisu bunny.net na którym bazuje cała aplikacja i na którym przechowywane są biblioteki, wchodzące w ich skład katalogi oraz filmy
-które są w nich zawarte.. W celu zapewnienia bezpieczeństwa wykorzystywana jest również biblioteka Bycrypt.
+które są w nich zawarte.
 
 Część kliencka opiera się na wykorzystaniu biblioteki React.
 
